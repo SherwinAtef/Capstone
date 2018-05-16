@@ -52,7 +52,7 @@
               
 require 'database_config.php';
 session_start();
-
+error_reporting(0);
 
 			$role = $_SESSION['sess_userrole'];
 

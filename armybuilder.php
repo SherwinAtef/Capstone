@@ -1,6 +1,7 @@
 
 <?php
 
+	error_reporting(0);
 		
 	include("database_config.php");
 	$query = $db->prepare("SELECT * FROM roster WHERE role = 'HQ'");
@@ -271,7 +272,10 @@
 		
 		
 	    <?php 
-		session_start();
+			
+				
+				session_start();
+		
 		
 				$id = $_SESSION['sess_user_id'];
 			
@@ -295,11 +299,7 @@
 
 			
 		}
-		
-		?>	
-		
-		
-		
+		?>		
 	<form>
 		<input name="liFile" id="liFile" type="text" class="text-input__element loadsave-army-name" maxlength="140" required>
 		<button id="savelist" onClick="save();" type="submit">
@@ -320,23 +320,12 @@
 	<script>
 		function save() {
 			
-		
-				<?php
-				$myfile = fopen("File/$liFile.php", "w") or die("Unable to open file!");
-				$txt = saveHQ();
-				fwrite($myfile, $txt);
-				$txt = saveTR();
-				fwrite($myfile, $txt);
-				$txt = saveELT();
-				fwrite($myfile, $txt);
-				$txt = saveFA();
-				fwrite($myfile, $txt);
-				$txt = saveHS();
-				fwrite($myfile, $txt);
-				fclose($myfile);
-				?>
-				
-			
+		<?php
+$myfile = fopen("Files/$liFile.php", "w") or die("Unable to open file!");
+$txt = "Test\n";
+fwrite($myfile, $txt);
+fclose($myfile);
+?>
 			
 		
 		}

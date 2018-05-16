@@ -52,7 +52,7 @@
 // Associative array to display 2 types of errr messages.
               
 require 'database_config.php';
-
+			error_reporting(0);
 			
 
 			$role = $_SESSION['sess_userrole'];
