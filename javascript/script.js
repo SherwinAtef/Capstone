@@ -2,21 +2,7 @@
 
  
 var poweradd = 0;
-var discriptionHQ = "";
-var discriptionTR = "";
-var discriptionELT = "";
-var discriptionFA = "";
-var discriptionHS = "";
-var HQarr = [];
-var TRarr = [];
-var ELTarr = [];
-var FAarr = [];
-var HSarr = [];
-var hrrostid = 0;
-var trrostid = 0;
-var eltrostid = 0;
-var farostid = 0;
-var hsrostid = 0;
+
 var TableData = 0;
 
 function addunitHQ() {
@@ -31,7 +17,7 @@ function addunitHQ() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Captain-General Trajann Valoris";
 		power.innerHTML = "Power Level: 10";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowHQ(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 		
 		
 		
@@ -45,7 +31,7 @@ function addunitHQ() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Shield-Captain in Allarus Terminator Armour";
 		power.innerHTML = "Power Level: 8";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowHQ(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 			}
 		else if(document.getElementById('HQDropDownList').value == 4){
 		
@@ -56,7 +42,7 @@ function addunitHQ() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Shield-Captain on DawnEagle Jetbike";
 		power.innerHTML = "Power Level: 9";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowHQ(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 			
 			}
 	
@@ -69,7 +55,7 @@ function addunitHQ() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Shield-Captain";
 		power.innerHTML = "Power Level: 7";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowHQ(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 			}
 	return poweradd + " Power Level";
 	}
@@ -88,7 +74,7 @@ function addunitTR() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Custodian Guard";
 		power.innerHTML = "Power Level: 7";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowTR(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 		
 	}
 	
@@ -111,7 +97,7 @@ function addunitELT() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Allarus Custodians";
 		power.innerHTML = "Power Level: 13";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowELT(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 		
 		
 	}
@@ -123,7 +109,7 @@ function addunitELT() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Custodian Wardens";
 		power.innerHTML = "Power Level: 10";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowELT(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 		
 			}
 		else if(document.getElementById('ELTDropDownList').value == 9){
@@ -134,7 +120,7 @@ function addunitELT() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Venerable Conteptor Dreadnought";
 		power.innerHTML = "Power Level: 10";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowELT(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 			}
 	else if(document.getElementById('ELTDropDownList').value == 10){
 			poweradd = poweradd + 7;
@@ -144,7 +130,7 @@ function addunitELT() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Vexilus Praetor in Allarus Terminator Armor";
 		power.innerHTML = "Power Level: 7";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowELT(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 			}
 	else {
 		poweradd = poweradd + 6;
@@ -154,7 +140,7 @@ function addunitELT() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Vexilus Praetor";
 		power.innerHTML = "Power Level: 6";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowELT(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 	}
 	
 		
@@ -173,7 +159,7 @@ function addunitFA() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Vertus Praetors";
 		power.innerHTML = "Power Level: 15";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowFA(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 	}
 
 	return poweradd + " Power Level";
@@ -188,7 +174,7 @@ function addunitHS() {
 		var del = model.insertCell(2);
 		name.innerHTML = "Venerable Land Raider";
 		power.innerHTML = "Power Level: 21";
-		del.innerHTML = "<button onclick =' Delete();' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
+		del.innerHTML = "<button onclick='deleteRowHS(this)' style ='display:right;margin:right;' id = 'Delete' value='Delete	'> Delete</button> <br>";
 		
 	}
 
@@ -275,4 +261,25 @@ $("table#HSrost tr").each(function() {
 });
 
 
+}
+
+function deleteRowHQ(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("HQrost").deleteRow(i);
+}
+function deleteRowTR(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("TRrost").deleteRow(i);
+}
+function deleteRowELT(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("ELTrost").deleteRow(i);
+}
+function deleteRowFA(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("FArost").deleteRow(i);
+}
+function deleteRowHS(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("HSrost").deleteRow(i);
 }
