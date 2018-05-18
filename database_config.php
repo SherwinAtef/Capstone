@@ -20,9 +20,5 @@ $db = new PDO('mysql:host=' .$db_host.';
 
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$db1 = mysqli_connect( $db_host,$db_user,$db_pass,$db_database);
 
-if(mysqli_connect_errno()){
-	echo "failed to connect to MySQL: " . mysqli_connect_error();
-}
 ?>

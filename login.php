@@ -91,11 +91,11 @@ require 'database_config.php';
                $error_id = $_GET['err'];
                if ($error_id == 1)
                {
-                              echo '<p class="text-danger">'.$errors[$error_id].'</p>';
+                              echo '<h3 class="text-danger main" >'.$errors[$error_id].'</h3>';
                }
                elseif ($error_id == 2)
                {
-                              echo '<p class="text-danger">'.$errors[$error_id].'</p>';
+                              echo '<h3 class="text-danger main" >'.$errors[$error_id].'</h3>';
                }
                ?>
 
@@ -107,9 +107,9 @@ require 'database_config.php';
 class="form-signin col-md-8 col-md-offset-2" role="form">
   
     <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>  
-   <input type="text" name="username" class="form-control" 
+   <input type="email" name="Username" class="form-control" 
                                                             placeholder="Email" required autofocus><br/>
-   <input type="password" name="password" class="form-control" 
+   <input type="password" name="Password" class="form-control" 
                                                             placeholder="Password" required><br/>
    <button class="btn btn-lg  btn-block" 
                                                                            type="submit">Sign in</button>

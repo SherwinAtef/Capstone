@@ -81,63 +81,45 @@ require 'database_config.php';
 
    </header>
     <div class="main">
-    <?php 
-		if(isset($_REQUEST['username'])){
-			$email = stripslashes($_REQUEST['username']);
-			$email = mysqli_real_escape_string($db1,$email);
-			
-			$password = stripslashes($_REQUEST['password']);
-			$password = mysqli_real_escape_string($db1,$password);
-			$password1 = stripslashes($_REQUEST['password1']);
-			$password1 = mysqli_real_escape_string($db1,$password1);
-			if($password == $password1){
-				$hashed = password_hash($password, PASSWORD_DEFAULT);
-			
-			$query = "INSERT into user (username, password, role) VALUES ('$email', '$hashed', 'user' )";
-			$result = mysqli_query($db1, $query);
-			
-			if($result){
-				echo "<div class='form'><h3> You have been registered successfully.</h3><br/>Click here to <a href='login.php'>Login</a></div>";
-			}
-				
-			}
-			else {
-				echo "<div class='form'><h3> The password's do not match</h3>	</div>";
-			}
-			
-		}
-		
-		?>
+    
     <?php
 // Associative array to display 2 types of errr messages.
-               $errors = array( 1=>"Invalid user name or password, Try again",
-                                                                 2=>"Please login to access this area" );
+               $errors = array( 1=>"Your passwords do not match",
+                                                                 2=>"Please login to access this area" ,3=>
+							  						"You have been registered successfully.");
                
                //Get the error_id from URL
                $error_id = $_GET['err'];
                if ($error_id == 1)
                {
-                              echo '<p class="text-danger">'.$errors[$error_id].'</p>';
+                              echo '<h3 class="text-danger">'.$errors[$error_id].'</h3>';
                }
                elseif ($error_id == 2)
                {
-                              echo '<p class="text-danger">'.$errors[$error_id].'</p>';
+                              echo '<h3 class="text-danger">'.$errors[$error_id].'</h3>';
                }
+				elseif ($error_id == 3){
+							
+							  echo '<h3>'.$errors[$error_id].'</h3>';
+				}
+			
                ?>
+               
+               
 
 
 
 
 
-	<form  method="POST" 
+	<form action="sign.php" method="POST" 
 class="form-signin col-md-8 col-md-offset-2" role="form">
   
-    <h1 class="h3 mb-3 font-weight-normal">Please Create a acount</h1>  
-   <input type="text" name="username" class="form-control" 
+    <h1 class="h3 mb-3 font-weight-normal">Please Create a Account</h1>  
+   <input type="email" name="Username" class="form-control" 
                                                             placeholder="Email" required autofocus><br/>
-   <input type="password" name="password" class="form-control" 
+   <input type="password" name="Password" class="form-control" 
                                                             placeholder="Password" required><br/>
-     <input type="password" name="password1" class="form-control" 
+     <input type="password" name="Password1" class="form-control" 
                                                             placeholder="Re-enter Password" required><br/>
    <button class="btn btn-lg  btn-block" 
                                                                            type="submit">Sign up</button>

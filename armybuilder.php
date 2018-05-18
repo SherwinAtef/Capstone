@@ -57,9 +57,9 @@
 										<?php
 							while($row=$query->fetch(PDO::FETCH_ASSOC))
 							{
-								$name=$row['name'];
-								$power=$row['powerlevel'];
-								$id=$row['id'];
+								$name=$row['Name'];
+								$power=$row['Powerlevel'];
+								$id=$row['Id'];
 								?>
 								<lo>
 								<div class="rect">
@@ -107,9 +107,9 @@
 										<?php
 							while($row=$query2->fetch(PDO::FETCH_ASSOC))
 							{
-								$name=$row['name'];
-								$power=$row['powerlevel'];
-								$id=$row['id'];
+								$name=$row['Name'];
+								$power=$row['Powerlevel'];
+								$id=$row['Id'];
 								?>
 								<lo>
 								<div class="rect">
@@ -151,9 +151,9 @@
 										<?php
 							while($row=$query3->fetch(PDO::FETCH_ASSOC))
 							{
-								$name=$row['name'];
-								$power=$row['powerlevel'];
-								$id=$row['id'];
+								$name=$row['Name'];
+								$power=$row['Powerlevel'];
+								$id=$row['Id'];
 								?>
 								<lo>
 								<div class="rect">
@@ -193,9 +193,9 @@
 										<?php
 							while($row=$query4->fetch(PDO::FETCH_ASSOC))
 							{
-								$name=$row['name'];
-								$power=$row['powerlevel'];
-								$id=$row['id']
+								$name=$row['Name'];
+								$power=$row['Powerlevel'];
+								$id=$row['Id']
 								?>
 								<lo>
 								<div class="rect">
@@ -235,9 +235,9 @@
 										<?php
 							while($row=$query5->fetch(PDO::FETCH_ASSOC))
 							{
-								$name=$row['name'];
-								$power=$row['powerlevel'];
-								$id=$row['id'];
+								$name=$row['Name'];
+								$power=$row['Powerlevel'];
+								$id=$row['Id'];
 								?>
 								<lo>
 								<div class="rect">
@@ -271,38 +271,9 @@
 		
 		
 		
-	    <?php 
-			
-				
-				session_start();
-		
-		
-				$id = $_SESSION['sess_user_id'];
-			
-			
-			
-		if(isset($_REQUEST['liFile'])){
-			$liFile = stripslashes($_REQUEST['liFile']);
-			$liFile = mysqli_real_escape_string($db1,$liFile);
-			
-		
-			
-				
-			
-			$query = "INSERT into lists (File, UserID) VALUES ('$liFile', '$id')";
-			$result = mysqli_query($db1, $query);
-			
-			if($result){
-				echo "<div class='form'><h3> Your list has been saved.</h3></div>";
-			}
-				
-
-			
-		}
-		?>		
-	<form>
+	<form action="save.php" method="post">
 		<input name="liFile" id="liFile" type="text" class="text-input__element loadsave-army-name" maxlength="140" required>
-		<button id="savelist" onClick="save();" type="submit">
+		<button onClick="save();" id="savelist" type="submit">
 		save
 	</button>
 	</form>
@@ -317,19 +288,7 @@
 	</div>
 	
 	</div>
-	<script>
-		function save() {
-			
-		<?php
-$myfile = fopen("Files/$liFile.php", "w") or die("Unable to open file!");
-$txt = "Test\n";
-fwrite($myfile, $txt);
-fclose($myfile);
-?>
-			
-		
-		}
-	</script>
+	
 	<script src="./javascript/script.js"></script>
 	<script src="./javascript/jquery-3.3.1.slim.min.js.download" ></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
