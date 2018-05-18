@@ -67,7 +67,7 @@ function addunitHQ() {
 function addunitTR() {
 		var model = document.getElementById('TRrost').insertRow(0);
 	if (document.getElementById('TRDropDownList').value == 6){
-		poweradd = poweradd + 8;
+		poweradd = poweradd + 7;
 		document.getElementById('total').innerHTML = poweradd + " Power Level" ;
 		var name = model.insertCell(0);
 		var power = model.insertCell(1);
@@ -182,19 +182,42 @@ function addunitHS() {
 	return poweradd + " Power Level";
 }
 
-
+function save(){
+	
+	saveHQ();
+	saveTR();
+	saveELT();
+	saveFA();
+	saveHS();
+}
 
 function saveHQ(){
 	
-	var myTableArray = [];
+	var myTableArrayHQ = [];
 
 $("table#HQrost tr").each(function() {
     var arrayOfThisRow = [];
-    var tableData = $(this).find('td');
-    if (tableData.length > 0) {
-        tableData.each(function() { arrayOfThisRow.push($(this).text()); });
-        myTableArray.push(arrayOfThisRow);
+    var tableDataHQ = $(this).find('td');
+    if (tableDataHQ.length > 0) {
+        tableDataHQ.each(function() { arrayOfThisRow.push($(this).text()); });
+        myTableArrayHQ.push(arrayOfThisRow);
     }
+	
+	var myJSONHQ = JSON.stringify(myTableArrayHQ);
+	dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        for (x in myObj) {
+            
+        }
+       
+    }
+};
+xmlhttp.open("POST", "save.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
 });
 
 
@@ -202,15 +225,18 @@ $("table#HQrost tr").each(function() {
 
 function saveTR(){
 	
-	var myTableArray = [];
+	var myTableArrayTR = [];
 
 $("table#TRrost tr").each(function() {
     var arrayOfThisRow = [];
-    var tableData = $(this).find('td');
-    if (tableData.length > 0) {
-        tableData.each(function() { arrayOfThisRow.push($(this).text()); });
-        myTableArray.push(arrayOfThisRow);
+    var tableDataTR = $(this).find('td');
+    if (tableDataTR.length > 0) {
+        tableDataTR.each(function() { arrayOfThisRow.push($(this).text()); });
+        myTableArrayTR.push(arrayOfThisRow);
     }
+	
+var myJSONTR = JSON.stringify(myTableArrayTR);
+	return myJSONTR	;
 });
 
 
@@ -218,30 +244,35 @@ $("table#TRrost tr").each(function() {
 
 function saveELT(){
 	
-	var myTableArray = [];
+	var myTableArrayELT = [];
 
 $("table#ELTrost tr").each(function() {
     var arrayOfThisRow = [];
-    var tableData = $(this).find('td');
-    if (tableData.length > 0) {
-        tableData.each(function() { arrayOfThisRow.push($(this).text()); });
-        myTableArray.push(arrayOfThisRow);
+    var tableDataELT = $(this).find('td');
+    if (tableDataELT.length > 0) {
+        tableDataELT.each(function() { arrayOfThisRow.push($(this).text()); });
+        myTableArrayELT.push(arrayOfThisRow);
     }
+	var myJSONELT = JSON.stringify(myTableArrayELT);
+	return myJSONELT	;
 });
 
 
 }
 function saveFA(){
 	
-	var myTableArray = [];
+	var myTableArrayFA = [];
 
 $("table#FArost tr").each(function() {
     var arrayOfThisRow = [];
-    var tableData = $(this).find('td');
-    if (tableData.length > 0) {
-        tableData.each(function() { arrayOfThisRow.push($(this).text()); });
-        myTableArray.push(arrayOfThisRow);
+    var tableDataFA = $(this).find('td');
+    if (tableDataFA.length > 0) {
+        tableDataFA.each(function() { arrayOfThisRow.push($(this).text()); });
+        myTableArrayFA.push(arrayOfThisRow);
     }
+	
+	var myJSONFA = JSON.stringify(myTableArrayFA);
+	return myJSONFA	;
 });
 
 
@@ -249,15 +280,18 @@ $("table#FArost tr").each(function() {
 
 function saveHS(){
 	
-	var myTableArray = [];
+	var myTableArrayHS = [];
 
 $("table#HSrost tr").each(function() {
     var arrayOfThisRow = [];
-    var tableData = $(this).find('td');
-    if (tableData.length > 0) {
-        tableData.each(function() { arrayOfThisRow.push($(this).text()); });
-        myTableArray.push(arrayOfThisRow);
+    var tableDataHS = $(this).find('td');
+    if (tableDataHS.length > 0) {
+        tableDataHS.each(function() { arrayOfThisRow.push($(this).text()); });
+        myTableArrayHS.push(arrayOfThisRow);
     }
+	var myJSONHS = JSON.stringify(myTableArrayHS);
+	return myJSONHS	;
+	
 });
 
 
