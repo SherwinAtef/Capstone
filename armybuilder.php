@@ -288,7 +288,16 @@
 	</div>
 	
 	</div>
+	<script>
 	
+function save(){
+	
+	saveHQ();
+	saveTR();
+	saveELT();
+	saveFA();
+	saveHS();
+}</script>
 	<script src="./javascript/script.js"></script>
 	<script src="./javascript/jquery-3.3.1.slim.min.js.download" ></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
