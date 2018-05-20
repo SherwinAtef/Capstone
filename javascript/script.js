@@ -201,23 +201,17 @@ $("table#HQrost tr").each(function() {
     if (tableDataHQ.length > 0) {
         tableDataHQ.each(function() { arrayOfThisRow.push($(this).text()); });
         myTableArrayHQ.push(arrayOfThisRow);
+		alert(myTableArrayHQ);
     }
 	
-	var myJSONHQ = JSON.stringify(myTableArrayHQ);
-	dbParam = JSON.stringify(obj);
-xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        myObj = JSON.parse(this.responseText);
-        for (x in myObj) {
-            
-        }
-       
-    }
-};
+	var myJSONHQ  = JSON.stringify(myTableArrayHQ);
+	var xmlhttp;
+	localStorage.setItem("HQsave" , myJSONHQ);
 xmlhttp.open("POST", "save.php", true);
 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xmlhttp.send("x=" + dbParam);
+xmlhttp.send(myJSONHQ);
+	
+	
 });
 
 
@@ -236,7 +230,11 @@ $("table#TRrost tr").each(function() {
     }
 	
 var myJSONTR = JSON.stringify(myTableArrayTR);
-	return myJSONTR	;
+	var xmlhttp;
+	localStorage.setItem("TRsave" , myJSONTR);
+xmlhttp.open("POST", "save.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send(myJSONTR);
 });
 
 
